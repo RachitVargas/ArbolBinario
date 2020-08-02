@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class Tree {
 
-    private Node root; // first node of tree
+    private Node root;
 
     public Tree() {
         root = null;
@@ -29,7 +29,7 @@ public class Tree {
                             parent.leftChild = newNode;
                             return;
                         }
-                    } else {
+                    }else {
 
                         current = current.rightChild;
                         if (current == null) {
@@ -53,7 +53,6 @@ public class Tree {
                 }
             }
         }
-
     }
 
 

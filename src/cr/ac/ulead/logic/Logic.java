@@ -16,6 +16,7 @@ public class Logic {
     private Node root;
     gestorData gestor;
     Persona persona;
+    boolean validacion = true;
 
     public Logic() {
         this.presentacion = new presentacion();
@@ -23,7 +24,6 @@ public class Logic {
         this.root = null;
         this.gestor = new gestorData();
         this.persona = new Persona();
-
     }
 
     public void run(int opcion) throws IOException {
@@ -31,14 +31,22 @@ public class Logic {
         switch (opcion) {
 
             case 1:
-
                 persona = presentacion.getPersona();
                 tree.insert(persona);
-                gestorData.inserPersonatInCsv(persona);
                 break;
 
             case 2:
-                gestor.leerDatos(list);
+
+                if (validacion) {
+                    gestor.leerDatos(list);
+                    for (int i = 0; i < list.size(); i++) {
+                        tree.insert(list.get(i).data);
+                    }
+                    validacion = false;
+                } else {
+                    System.out.println("Lo sentimos, ya leeiste los datos del archivo csv");
+                }
+
                 break;
 
             case 3:

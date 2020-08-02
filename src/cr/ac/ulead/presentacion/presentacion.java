@@ -51,7 +51,7 @@ public class presentacion {
         output.println("Ingrese la fecha de nacimiento (CON ESTRICTO FORMATO: dd/mm/aaaa)");
         LocalDate localDate = LocalDate.parse(input.nextLine(), date);
         persona.setLocalDate(localDate);
-        output.println("Ingrese la cédula");
+        output.println("Ingrese la cédula (CON ESTRICTO FORMATO: 123456789, SIN GUION)");
         persona.setCedula(input.nextLine());
 
         output.println("La persona se registró exitosamente ✔");
